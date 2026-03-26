@@ -1,3 +1,5 @@
+import { useEffect, useMemo, useState } from "react";
+
 import { cn } from "@/lib/utils";
 
 type CodeWindowProps = {
@@ -23,6 +25,28 @@ const codeLines = [
 ];
 
 export function CodeWindow({ className, compact = false }: CodeWindowProps) {
+  const fullSnippet = useMemo(() => codeLines.join("\n"), []);
+  const [cursor, setCursor] = useState(0);
+
+  useEffect(() => {
+    if (cursor >= fullSnippet.length) {
+      return;
+    }
+
+    const char = fullSnippet[cursor] ?? "";
+    const baseDelay = char === "\n" ? 55 : 20;
+    const jitter = Math.floor(Math.random() * 26);
+
+    const timer = setTimeout(() => {
+      setCursor((prev) => Math.min(prev + 1, fullSnippet.length));
+    }, baseDelay + jitter);
+
+    return () => clearTimeout(timer);
+  }, [cursor, fullSnippet]);
+
+  const typedText = fullSnippet.slice(0, cursor);
+  const typedLines = typedText.split("\n");
+
   return (
     <div
       className={cn(
@@ -40,12 +64,20 @@ export function CodeWindow({ className, compact = false }: CodeWindowProps) {
         </div>
       </div>
       <div className={cn("grid gap-1 px-5 py-4 font-mono text-xs leading-relaxed", compact && "text-[0.7rem]")}>
-        {codeLines.map((line, index) => (
+        {codeLines.map((line, index) => {
+          const visibleText = typedLines[index] ?? "";
+          const isActiveLine = index === typedLines.length - 1;
+
+          return (
           <p key={`${line}-${index}`} className="text-foreground/85">
             <span className="mr-3 inline-block w-4 text-right text-muted-foreground/50">{index + 1}</span>
-            <span className={index % 3 === 0 ? "text-[color:var(--success)]/90" : "text-foreground/80"}>{line}</span>
+            <span className={index % 3 === 0 ? "text-[color:var(--success)]/90" : "text-foreground/80"}>
+              {visibleText}
+              {isActiveLine && cursor < fullSnippet.length ? <span className="animate-pulse text-foreground">|</span> : null}
+            </span>
           </p>
-        ))}
+          );
+        })}
       </div>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/90 to-transparent" />
     </div>

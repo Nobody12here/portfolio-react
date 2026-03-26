@@ -78,7 +78,7 @@ export function HeroSection() {
 
       <div className="animate-reveal relative" style={{ animationDelay: "260ms" }}>
         <div className="pointer-events-none absolute -top-4 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/80 to-transparent" />
-        <CodeWindow className="fx-sheen w-full" />
+        <CodeWindow className="w-full" />
         <div className="pointer-events-none absolute -bottom-4 right-0 h-px w-full bg-gradient-to-l from-transparent via-[color:var(--success)]/80 to-transparent" />
       </div>
 
