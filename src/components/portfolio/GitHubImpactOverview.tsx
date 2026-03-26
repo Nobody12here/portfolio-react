@@ -124,7 +124,7 @@ export function GitHubImpactOverview({ username }: GitHubImpactOverviewProps) {
   return (
     <div className="hover-lift relative overflow-hidden border border-border/70 bg-[#0e1627]/80 p-4">
       <div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-primary/20 blur-2xl" />
-      <div className="pointer-events-none absolute -bottom-10 -left-10 h-24 w-24 rounded-full bg-[color:var(--success)]/20 blur-2xl" />
+      <div className="pointer-events-none absolute -bottom-10 -left-10 h-24 w-24 rounded-full bg-(--success)/20 blur-2xl" />
       <div className="relative space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <p className="text-[0.62rem] uppercase tracking-[0.14em] text-muted-foreground">Impact Overview</p>
@@ -132,7 +132,7 @@ export function GitHubImpactOverview({ username }: GitHubImpactOverviewProps) {
             href={`https://github.com/${username}`}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1 text-[0.62rem] uppercase tracking-[0.12em] text-[color:var(--success)] hover:text-foreground"
+            className="inline-flex items-center gap-1 text-(--success) text-[0.62rem] uppercase tracking-[0.12em] hover:text-foreground"
           >
             <Github className="size-3.5" />
             @{username}
@@ -146,7 +146,7 @@ export function GitHubImpactOverview({ username }: GitHubImpactOverviewProps) {
               className="hover-lift animate-reveal border border-border/60 bg-secondary/40 p-2.5"
               style={{ animationDelay: `${80 + index * 70}ms` }}
             >
-              <p className="text-[0.62rem] uppercase tracking-[0.1em] text-muted-foreground">{card.label}</p>
+              <p className="text-[0.62rem] uppercase tracking-widest text-muted-foreground">{card.label}</p>
               <p className="mt-1 font-heading text-lg text-foreground">{isLoading ? "..." : card.value}</p>
             </div>
           ))}
@@ -167,7 +167,7 @@ export function GitHubImpactOverview({ username }: GitHubImpactOverviewProps) {
                   </div>
                   <div className="h-1.5 bg-background/70">
                     <div
-                      className="h-full bg-gradient-to-r from-primary to-[color:var(--success)]"
+                      className="h-full bg-linear-to-r from-primary to-(--success)"
                       style={{ width: `${lang.percentage}%` }}
                     />
                   </div>
@@ -176,22 +176,22 @@ export function GitHubImpactOverview({ username }: GitHubImpactOverviewProps) {
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 md:grid-cols-1 md:gap-1">
-            <div className="inline-flex items-center gap-1 text-[0.62rem] uppercase tracking-[0.1em] text-muted-foreground">
+            <div className="inline-flex items-center gap-1 text-[0.62rem] uppercase tracking-widest text-muted-foreground">
               <Github className="size-3.5 text-primary" />
               Live
             </div>
-            <div className="inline-flex items-center gap-1 text-[0.62rem] uppercase tracking-[0.1em] text-muted-foreground">
-              <Users className="size-3.5 text-[color:var(--success)]" />
+            <div className="inline-flex items-center gap-1 text-[0.62rem] uppercase tracking-widest text-muted-foreground">
+              <Users className="size-3.5 text-(--success)" />
               Public Data
             </div>
-            <div className="inline-flex items-center gap-1 text-[0.62rem] uppercase tracking-[0.1em] text-muted-foreground">
-              <Star className="size-3.5 text-[color:var(--highlight)]" />
+            <div className="inline-flex items-center gap-1 text-[0.62rem] uppercase tracking-widest text-muted-foreground">
+              <Star className="size-3.5 text-(--highlight)" />
               Auto Refresh
             </div>
           </div>
         </div>
 
-        {error ? <p className="text-xs text-[color:var(--highlight)]">{error}</p> : null}
+        {error ? <p className="text-(--highlight) text-xs">{error}</p> : null}
       </div>
     </div>
   );

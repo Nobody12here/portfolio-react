@@ -51,7 +51,7 @@ export function CodeWindow({ className, compact = false }: CodeWindowProps) {
     <div
       className={cn(
         "relative overflow-hidden border border-border bg-[#0d1525]/85 shadow-[0_32px_75px_rgba(0,0,0,0.55)]",
-        compact ? "min-h-[220px]" : "min-h-[340px]",
+        compact ? "min-h-55" : "min-h-85",
         className,
       )}
     >
@@ -59,7 +59,7 @@ export function CodeWindow({ className, compact = false }: CodeWindowProps) {
         <div className="flex items-center gap-2">
           <span className="size-2 rounded-full bg-[#334155]" />
           <span className="size-2 rounded-full bg-primary/70" />
-          <span className="size-2 rounded-full bg-[color:var(--success)]/70" />
+          <span className="size-2 rounded-full bg-(--success)/70" />
           <span className="ml-3 text-[0.63rem] uppercase tracking-[0.16em] text-muted-foreground">workspace/main.tsx</span>
         </div>
       </div>
@@ -69,17 +69,17 @@ export function CodeWindow({ className, compact = false }: CodeWindowProps) {
           const isActiveLine = index === typedLines.length - 1;
 
           return (
-          <p key={`${line}-${index}`} className="text-foreground/85">
-            <span className="mr-3 inline-block w-4 text-right text-muted-foreground/50">{index + 1}</span>
-            <span className={index % 3 === 0 ? "text-[color:var(--success)]/90" : "text-foreground/80"}>
-              {visibleText}
-              {isActiveLine && cursor < fullSnippet.length ? <span className="animate-pulse text-foreground">|</span> : null}
-            </span>
-          </p>
+            <p key={`${line}-${index}`} className="text-foreground/85">
+              <span className="mr-3 inline-block w-4 text-right text-muted-foreground/50">{index + 1}</span>
+              <span className={index % 3 === 0 ? "text-(--success)/90" : "text-foreground/80"}>
+                {visibleText}
+                {isActiveLine && cursor < fullSnippet.length ? <span className="animate-pulse text-foreground">|</span> : null}
+              </span>
+            </p>
           );
         })}
       </div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/90 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-background/90 to-transparent" />
     </div>
   );
 }

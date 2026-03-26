@@ -18,7 +18,7 @@ export function ExperienceSection() {
                 <h3 className="font-heading text-xl text-foreground">{item.role}</h3>
                 <p className="text-sm text-muted-foreground">{item.company}</p>
               </div>
-              <p className="text-[0.68rem] uppercase tracking-[0.14em] text-[color:var(--success)]">{item.period}</p>
+              <p className="text-[0.68rem] uppercase tracking-[0.14em] text-(--success)">{item.period}</p>
             </div>
             <ul className="mt-4 grid gap-2 text-sm text-muted-foreground">
               {item.points.map((point) => (

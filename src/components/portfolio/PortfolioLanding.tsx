@@ -12,15 +12,15 @@ export function PortfolioLanding() {
   return (
     <div className="relative overflow-hidden bg-background text-foreground">
       <div className="site-grid pointer-events-none absolute inset-0 opacity-40" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[480px] bg-[radial-gradient(65%_55%_at_50%_0%,rgba(99,102,241,0.22),transparent_75%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-[24rem] h-[540px] bg-[radial-gradient(60%_48%_at_50%_20%,rgba(34,197,94,0.16),transparent_78%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-120 bg-[radial-gradient(65%_55%_at_50%_0%,rgba(99,102,241,0.22),transparent_75%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-96 h-135 bg-[radial-gradient(60%_48%_at_50%_20%,rgba(34,197,94,0.16),transparent_78%)]" />
       <div className="pointer-events-none absolute -left-28 top-40 h-72 w-72 rounded-full bg-primary/20 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-24 top-[40rem] h-72 w-72 rounded-full bg-[color:var(--success)]/15 blur-[130px]" />
+      <div className="pointer-events-none absolute -right-24 top-160 h-72 w-72 rounded-full bg-(--success)/15 blur-[130px]" />
 
-      <div className="relative mx-auto max-w-[1180px] px-4 py-6 sm:px-6 lg:px-9 lg:py-10">
+      <div className="relative mx-auto max-w-295 px-4 py-6 sm:px-6 lg:px-9 lg:py-10">
         <div className="main-shell relative border border-border/80 bg-[#09101d]/85 shadow-[0_28px_100px_rgba(0,0,0,0.55)] backdrop-blur-sm">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--success)]/65 to-transparent" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/75 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-(--success)/65 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-primary/75 to-transparent" />
           <PortfolioHeader />
 
           <main className="space-y-20 px-5 py-10 sm:px-8 lg:space-y-24 lg:px-10 lg:py-14">
@@ -100,7 +100,7 @@ export function PortfolioLanding() {
               <div className="flex items-center gap-4 text-muted-foreground/80">
                 <GitFork className="size-4" />
                 <Layers className="size-4" />
-                <Sparkles className="size-4 text-[color:var(--highlight)]" />
+                <Sparkles className="size-4 text-(--highlight)" />
               </div>
             </div>
           </footer>

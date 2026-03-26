@@ -7,9 +7,10 @@ type TiltCardProps = {
   className?: string;
   maxTilt?: number;
   perspective?: number;
+  style?: CSSProperties;
 };
 
-export function TiltCard({ children, className, maxTilt = 8, perspective = 1000 }: TiltCardProps) {
+export function TiltCard({ children, className, maxTilt = 8, perspective = 1000, style }: TiltCardProps) {
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg) scale(1)");
   const [isReducedMotion, setIsReducedMotion] = useState(false);
 
@@ -23,7 +24,7 @@ export function TiltCard({ children, className, maxTilt = 8, perspective = 1000 
     return () => media.removeEventListener("change", applyPreference);
   }, []);
 
-  const style = useMemo<CSSProperties>(
+  const style_ = useMemo<CSSProperties>(
     () => ({
       transform,
       transformStyle: "preserve-3d",
@@ -34,13 +35,13 @@ export function TiltCard({ children, className, maxTilt = 8, perspective = 1000 
   );
 
   if (isReducedMotion) {
-    return <div className={className}>{children}</div>;
+    return <div className={className} style={style}>{children}</div>;
   }
 
   return (
     <div
       className={cn("group relative", className)}
-      style={{ perspective }}
+      style={{ perspective, ...style_ }}
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
         const px = (event.clientX - rect.left) / rect.width;

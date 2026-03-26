@@ -34,12 +34,12 @@ function HeroVisualCluster() {
         <p className="mt-1 font-heading text-sm text-foreground">Django APIs</p>
       </div>
       <div className="animate-float animate-glow relative mt-3 border border-border/70 bg-[#102032]/70 p-3" style={{ animationDelay: "300ms" }}>
-        <Wallet className="mb-2 size-5 text-[color:var(--success)]" />
+        <Wallet className="mb-2 size-5 text-(--success)" />
         <p className="text-[0.58rem] uppercase tracking-[0.13em] text-muted-foreground">Web3</p>
         <p className="mt-1 font-heading text-sm text-foreground">Smart Contracts</p>
       </div>
       <div className="animate-float relative mt-3 border border-border/70 bg-secondary/30 p-3" style={{ animationDelay: "650ms" }}>
-        <Blocks className="mb-2 size-5 text-[color:var(--highlight)]" />
+        <Blocks className="mb-2 size-5 text-(--highlight)" />
         <p className="text-[0.58rem] uppercase tracking-[0.13em] text-muted-foreground">Cloud</p>
         <p className="mt-1 font-heading text-sm text-foreground">DevOps Pipeline</p>
       </div>
@@ -79,9 +79,9 @@ export function HeroSection() {
       </div>
 
       <div className="animate-reveal relative" style={{ animationDelay: "260ms" }}>
-        <div className="pointer-events-none absolute -top-4 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/80 to-transparent" />
+        <div className="pointer-events-none absolute -top-4 left-0 h-px w-full bg-linear-to-r from-transparent via-primary/80 to-transparent" />
         <CodeWindow className="w-full" />
-        <div className="pointer-events-none absolute -bottom-4 right-0 h-px w-full bg-gradient-to-l from-transparent via-[color:var(--success)]/80 to-transparent" />
+        <div className="pointer-events-none absolute -bottom-4 right-0 h-px w-full bg-linear-to-l from-transparent via-(--success)/80 to-transparent" />
       </div>
 
       <div className="animate-reveal" style={{ animationDelay: "320ms" }}>
