@@ -54,10 +54,10 @@ export function HeroSection() {
             eyebrow={profile.location}
             title={
               <>
-                {profile.title} building robust APIs, secure smart contracts, and production-ready Web3 systems.
+                {profile.title} for scalable APIs and secure Web3 products.
               </>
             }
-            description={profile.summary}
+            description="2+ years building Django backends, Solidity contracts, and production-ready Web3 integrations."
           />
           <div className="animate-reveal flex flex-wrap items-center gap-3" style={{ animationDelay: "160ms" }}>
             <GlowButton tone="success" asChild>
