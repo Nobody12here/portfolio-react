@@ -1,4 +1,5 @@
 import { SectionHeading } from "./SectionHeading";
+import { TiltCard } from "./TiltCard";
 import { skillGroups } from "./data";
 
 export function SkillsSection() {
@@ -11,7 +12,8 @@ export function SkillsSection() {
       />
       <div className="grid gap-4 md:grid-cols-2">
         {skillGroups.map((group) => (
-          <article key={group.title} className="border border-border/80 bg-secondary/40 p-5">
+          <TiltCard key={group.title} className="hover-lift" maxTilt={6}>
+          <article className="border border-border/80 bg-secondary/40 p-5">
             <h3 className="font-heading text-xl text-foreground">{group.title}</h3>
             <div className="mt-4 flex flex-wrap gap-2">
               {group.items.map((skill) => (
@@ -24,6 +26,7 @@ export function SkillsSection() {
               ))}
             </div>
           </article>
+          </TiltCard>
         ))}
       </div>
     </section>

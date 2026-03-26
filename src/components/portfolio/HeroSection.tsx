@@ -4,20 +4,22 @@ import { CodeWindow } from "./CodeWindow";
 import { GitHubImpactOverview } from "./GitHubImpactOverview";
 import { GlowButton } from "./GlowButton";
 import { SectionHeading } from "./SectionHeading";
+import { TiltCard } from "./TiltCard";
 import { highlights, profile } from "./data";
 
 function HighlightsGrid() {
   return (
     <div className="grid gap-3 sm:grid-cols-2">
       {highlights.map((item, index) => (
-        <div
+        <TiltCard
           key={item.label}
           className="hover-lift animate-reveal border border-border/70 bg-secondary/35 p-3"
+          maxTilt={7}
           style={{ animationDelay: `${120 + index * 90}ms` }}
         >
           <p className="font-heading text-xl text-foreground">{item.value}</p>
           <p className="text-[0.65rem] uppercase tracking-[0.12em] text-muted-foreground">{item.label}</p>
-        </div>
+        </TiltCard>
       ))}
     </div>
   );
