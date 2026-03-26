@@ -62,6 +62,86 @@
   mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
 }
 
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(99, 102, 241, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(99, 102, 241, 0.28);
+  }
+}
+
+@keyframes sheen {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(120%);
+  }
+}
+
+.animate-reveal {
+  opacity: 0;
+  animation: reveal-up 680ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-float {
+  animation: float-soft 4.5s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow-pulse 3.2s ease-in-out infinite;
+}
+
+.fx-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.fx-sheen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(226, 232, 240, 0.15), transparent);
+  transform: translateX(-120%);
+  animation: sheen 3.6s linear infinite;
+}
+
+.hover-lift {
+  transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 15px 35px rgba(2, 6, 23, 0.35);
+}
+
 @media (prefers-reduced-motion) {
   *,
   ::before,
