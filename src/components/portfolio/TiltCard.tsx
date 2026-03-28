@@ -46,7 +46,7 @@ export function TiltCard({ children, className, maxTilt = 8, perspective = 1000,
         const rect = event.currentTarget.getBoundingClientRect();
         const px = (event.clientX - rect.left) / rect.width;
         const py = (event.clientY - rect.top) / rect.height;
-        const rotateY = (px - 0.5) * maxTilt * 2;
+        const rotateY = (px - 0.8) * maxTilt * 2;
         const rotateX = (0.5 - py) * maxTilt * 2;
         setTransform(`rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(1.01)`);
       }}

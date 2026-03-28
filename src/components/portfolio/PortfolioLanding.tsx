@@ -7,6 +7,8 @@ import { PortfolioHeader } from "./PortfolioHeader";
 import { ProjectsSection } from "./ProjectsSection";
 import { SkillsSection } from "./SkillsSection";
 import { profile } from "./data";
+import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+import { ScrollToTopButton } from "@/components/ui/ScrollToTopButton";
 
 export function PortfolioLanding() {
   return (
@@ -24,31 +26,44 @@ export function PortfolioLanding() {
           <PortfolioHeader />
 
           <main className="space-y-20 px-5 py-10 sm:px-8 lg:space-y-24 lg:px-10 lg:py-14">
-            <HeroSection />
-            <ExperienceSection />
-            <SkillsSection />
-            <ProjectsSection />
+            <ScrollAnimation direction="up" threshold={0.1}>
+              <HeroSection />
+            </ScrollAnimation>
 
-            <section id="contact" className="border border-border/80 bg-secondary/30 p-6 sm:p-8">
-              <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-                <div>
-                  <p className="text-[0.66rem] uppercase tracking-[0.16em] text-muted-foreground">Contact</p>
-                  <h2 className="mt-2 font-heading text-3xl sm:text-4xl">Let&apos;s build scalable products together.</h2>
+            <ScrollAnimation direction="up" threshold={0.15}>
+              <ExperienceSection />
+            </ScrollAnimation>
+
+            <ScrollAnimation direction="up" threshold={0.15}>
+              <SkillsSection />
+            </ScrollAnimation>
+
+            <ScrollAnimation direction="up" threshold={0.15}>
+              <ProjectsSection />
+            </ScrollAnimation>
+
+            <ScrollAnimation direction="up" threshold={0.2} duration={0.7}>
+              <section id="contact" className="border border-border/80 bg-secondary/30 p-6 sm:p-8">
+                <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+                  <div>
+                    <p className="text-[0.66rem] uppercase tracking-[0.16em] text-muted-foreground">Contact</p>
+                    <h2 className="mt-2 font-heading text-3xl sm:text-4xl">Let&apos;s build scalable products together.</h2>
+                  </div>
+                  <div className="flex flex-wrap gap-3 lg:justify-end">
+                    <GlowButton tone="success" asChild>
+                      <a href={profile.linkedin} target="_blank" rel="noreferrer">
+                        LinkedIn
+                      </a>
+                    </GlowButton>
+                    <GlowButton asChild>
+                      <a href={profile.github} target="_blank" rel="noreferrer">
+                        GitHub
+                      </a>
+                    </GlowButton>
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-3 lg:justify-end">
-                  <GlowButton tone="success" asChild>
-                    <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                      LinkedIn
-                    </a>
-                  </GlowButton>
-                  <GlowButton asChild>
-                    <a href={profile.github} target="_blank" rel="noreferrer">
-                      GitHub
-                    </a>
-                  </GlowButton>
-                </div>
-              </div>
-            </section>
+              </section>
+            </ScrollAnimation>
           </main>
 
           <footer className="space-y-8 border-t border-border/70 bg-[#0a1322] px-5 py-10 sm:px-8 lg:px-10">
@@ -106,6 +121,9 @@ export function PortfolioLanding() {
           </footer>
         </div>
       </div>
+
+      <ScrollToTopButton />
     </div>
   );
 }
+
